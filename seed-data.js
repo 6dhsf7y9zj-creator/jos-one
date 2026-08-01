@@ -1,3 +1,4 @@
+// JOS One Release 0.4 seed data
 window.JOS_SEED_ITEMS = [
   {
     "sku": "JAE-PRE-001",

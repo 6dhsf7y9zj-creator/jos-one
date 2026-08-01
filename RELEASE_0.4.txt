@@ -1,0 +1,11 @@
+JOS ONE RELEASE 0.4
+
+This is a complete deployment package.
+Upload every item in this folder to the root of the existing jos-one repository.
+GitHub will only show a new timestamp for files whose contents changed. Images may keep older timestamps because they are intentionally unchanged.
+
+After publishing:
+1. Open the GitHub Pages address in Safari.
+2. Add ?v=04 to the end once, or reload twice.
+3. Fully close and reopen the Home Screen app.
+4. The header should read JOS One · Release 0.4.
