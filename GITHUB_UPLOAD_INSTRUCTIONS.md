@@ -1,6 +1,6 @@
 # Update JOS One on GitHub Pages
 
-1. Unzip `JOS_One_Preview_0.2.zip`.
+1. Unzip `JOS_One_Preview_0.3.zip`.
 2. Open your existing `jos-one` GitHub repository.
 3. Select **Add file → Upload files**.
 4. Upload every file from inside the unzipped folder directly to the repository root.

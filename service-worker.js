@@ -1,4 +1,4 @@
-const CACHE='jos-one-preview-02';
+const CACHE='jos-one-preview-03';
 const CORE=['./','./index.html','./styles.css','./app.js','./seed-data.js','./manifest.webmanifest','./the-jae-edit-logo.png','./apple-touch-icon.png','./icon-192.png','./icon-512.png','./favicon-32.png'];
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)))});
 self.addEventListener('activate',e=>{e.waitUntil(Promise.all([self.clients.claim(),caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k))))]))});

@@ -1,8 +1,8 @@
-# JOS One Preview 0.2
+# JOS One Preview 0.3
 
 Installable, offline-first prototype for The JAE Edit.
 
-## Improvements in 0.2
+## Improvements in 0.3
 - Branding assets moved to the repository root to avoid missing-image paths.
 - Dedicated iPhone and PWA icons.
 - Live CEO metrics from inventory data.
