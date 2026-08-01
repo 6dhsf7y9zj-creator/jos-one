@@ -1,5 +1,5 @@
 import type { AppData, Order, StockItem } from './types.js';
-export const APP_VERSION = '1.0.0';
+export const APP_VERSION = '1.0.1';
 export const FLOW = ['Prep','Photographed','Live','Sold','Dispatched','Archived'] as const;
 export function money(n:number):string { return new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP'}).format(Number(n||0)); }
 export function nextSku(items:StockItem[]):string { let max=0; for(const x of items){const m=String(x.sku||'').match(/(\d+)$/);if(m)max=Math.max(max,Number(m[1]));} return `JAE-${String(max+1).padStart(4,'0')}`; }

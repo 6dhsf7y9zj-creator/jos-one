@@ -1,4 +1,4 @@
-export const APP_VERSION = '1.0.0';
+export const APP_VERSION = '1.0.1';
 export const FLOW = ['Prep', 'Photographed', 'Live', 'Sold', 'Dispatched', 'Archived'];
 export function money(n) { return new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' }).format(Number(n || 0)); }
 export function nextSku(items) { let max = 0; for (const x of items) {

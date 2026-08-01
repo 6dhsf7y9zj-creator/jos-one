@@ -1,0 +1,6 @@
+JOS One Engineering 1.0.1
+
+Hotfix:
+- Edit button now opens a populated edit form.
+- Saving updates the existing stock record instead of creating a duplicate.
+- Existing SKU, days in stock and operational history are preserved.
