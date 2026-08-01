@@ -1,4 +1,4 @@
-const CACHE='jos-one-flat-1.0.3';
+const CACHE='jos-one-flat-1.1.0';
 const FILES=['./','./index.html','./styles.css','./seed-data.js','./app.js','./manifest.webmanifest','./the-jae-edit-logo.png','./apple-touch-icon.png','./icon-192.png','./icon-512.png','./favicon-32.png'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));

@@ -1,0 +1,6 @@
+JOS One Workflow 1.1.0
+- Quick Add stock
+- Storage location suggestions
+- Listing Assistant
+- Settings and backup
+- Live dashboard updates retained
