@@ -1,1 +1,15 @@
-{"name":"JOS One — The JAE Edit","short_name":"JOS One","start_url":"./","display":"standalone","background_color":"#f5efe4","theme_color":"#3a2418","description":"The operating system for The JAE Edit.","icons":[{"src":"assets/the-jae-edit-logo.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}]}
+{
+  "name":"JOS One — The JAE Edit",
+  "short_name":"JOS One",
+  "id":"./",
+  "start_url":"./?source=pwa",
+  "scope":"./",
+  "display":"standalone",
+  "background_color":"#f5efe4",
+  "theme_color":"#3a2418",
+  "description":"The operating system for The JAE Edit.",
+  "icons":[
+    {"src":"./icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
+    {"src":"./icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
+}

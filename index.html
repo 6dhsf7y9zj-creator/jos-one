@@ -1,2 +1,23 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#3a2418"><title>JOS One</title><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="assets/the-jae-edit-logo.png"><link rel="stylesheet" href="styles.css"></head><body>
-<div id="app"></div><script src="seed-data.js"></script><script src="app.js"></script><script>if('serviceWorker'in navigator){navigator.serviceWorker.register('./service-worker.js')}</script></body></html>
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#3a2418">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="JOS One">
+  <title>JOS One — The JAE Edit</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+  <link rel="icon" href="./favicon-32.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <noscript>JOS One requires JavaScript.</noscript>
+  <div id="app"></div>
+  <script src="./seed-data.js"></script>
+  <script src="./app.js"></script>
+  <script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(console.warn));}</script>
+</body>
+</html>

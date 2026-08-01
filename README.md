@@ -1,14 +1,16 @@
-# JOS One Alpha 0.1
+# JOS One Preview 0.2
 
-Working offline-first prototype for The JAE Edit.
+Installable, offline-first prototype for The JAE Edit.
 
-## Included
-- CEO Dashboard
-- Inventory Command Centre seeded from the JOS inventory workbook
-- Add New Stock with local storage
-- SourceCheck decision engine
-- Orders & Dispatch queue
-- Installable PWA files for iPhone/GitHub Pages
+## Improvements in 0.2
+- Branding assets moved to the repository root to avoid missing-image paths.
+- Dedicated iPhone and PWA icons.
+- Live CEO metrics from inventory data.
+- Search, filters and sorting.
+- Add, edit, delete and advance stock status.
+- Automatic SKU generation.
+- SourceCheck can save approved finds into inventory.
+- JSON backup and restore.
 
-## Important limitation
-Data is stored in the browser on the device. This Alpha has no cloud account, cross-device sync or automatic backup yet.
+## Current limitation
+Data is stored locally in the browser. Use **Orders → Download Backup** regularly. Cloud sync is not included yet.
