@@ -1,0 +1,8 @@
+JOS One Engineering 1.0.3
+
+Mobile form polish:
+- One full-width field per row in SourceCheck, Add Stock and Edit Stock
+- Larger tap targets and clearer spacing
+- Decimal keyboard hints for price fields
+- Larger SourceCheck result card with profit, conservative profit, max buy and ROI
+- No data-key or scoring-logic changes
