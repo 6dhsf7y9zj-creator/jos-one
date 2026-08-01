@@ -1,0 +1,12 @@
+JOS One Beta 0.5
+
+New in this release:
+- Shorter, action-first Home dashboard
+- Full business health breakdown in a modal
+- Rich Item Details view
+- One-tap lifecycle actions
+- Create dispatch order from sold stock
+- Dashboard health reaction and confirmation toast
+- Automatic migration from Release 0.4 data
+
+Upload every file in this folder to the root of the existing jos-one GitHub repository.
