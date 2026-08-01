@@ -1,15 +1,1 @@
-{
-  "name":"JOS One — The JAE Edit",
-  "short_name":"JOS One",
-  "id":"./",
-  "start_url":"./?source=pwa&v=0.4",
-  "scope":"./",
-  "display":"standalone",
-  "background_color":"#f5efe4",
-  "theme_color":"#3a2418",
-  "description":"JOS One Beta 0.6 — the operating system for The JAE Edit.",
-  "icons":[
-    {"src":"./icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
-    {"src":"./icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
-  ]
-}
+{"name":"JOS One — The JAE Edit","short_name":"JOS One","description":"The operating system for The JAE Edit","start_url":"./","display":"standalone","background_color":"#f6f0e5","theme_color":"#3a2418","icons":[{"src":"./icon-192.png","sizes":"192x192","type":"image/png"},{"src":"./icon-512.png","sizes":"512x512","type":"image/png"}]}

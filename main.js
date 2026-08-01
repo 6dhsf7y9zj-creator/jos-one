@@ -1,0 +1,28 @@
+import { APP_VERSION, advanceStatus, nextSku, sourceCheck } from './domain.js';
+import { exportData, loadData, saveData } from './storage.js';
+import { addView, homeView, inventoryView, itemModal, ordersView, sourceView } from './ui.js';
+const defaultOrders = [{ id: 'ORD-1001', sku: 'JAE-PRE-006', item: 'Nike Blue/Gold Hoodie', status: 'Ready to pack', deadline: 'Tomorrow' }, { id: 'ORD-1002', sku: 'JAE-PRE-004', item: 'Tommy Womens T-Shirt', status: 'Ready to dispatch', deadline: 'Today' }];
+const fallback = { version: APP_VERSION, items: window.JOS_SEED_ITEMS ?? [], orders: defaultOrders };
+const loaded = loadData(fallback);
+const state = { ...loaded, page: 'home', query: '', filter: 'All', sort: 'newest', toast: '' };
+const rootEl = document.querySelector('#app');
+if (!rootEl)
+    throw new Error('Missing #app');
+const root = rootEl;
+function save() { saveData({ version: APP_VERSION, items: state.items, orders: state.orders }); }
+function render() { const views = { home: homeView, inventory: inventoryView, add: addView, source: sourceView, orders: ordersView }; root.innerHTML = `<div class="app">${views[state.page](state)}</div>${state.toast ? `<div class="toast">${state.toast}</div>` : ''}`; bind(); }
+function itemFromForm(form) { const f = new FormData(form), purchase = Number(f.get('purchase')), sale = Number(f.get('sale')); return { sku: String(f.get('sku') || nextSku(state.items)), brand: String(f.get('brand') || '').trim(), category: String(f.get('category')), description: String(f.get('description') || '').trim() || `${f.get('brand')} ${f.get('category')}`, size: String(f.get('size') || ''), condition: String(f.get('condition')), status: String(f.get('status')), grade: String(f.get('grade')), storage: String(f.get('storage') || 'TBC') || 'TBC', source: String(f.get('source') || ''), purchasePrice: purchase, landedCost: purchase, expectedSale: sale, listPrice: sale, expectedProfit: sale - purchase, roi: purchase ? (sale - purchase) / purchase : 0, daysInStock: 0, action: 'Prepare item' }; }
+function bind() { document.querySelectorAll('[data-page]').forEach(b => b.onclick = () => { state.page = b.dataset.page; render(); }); const search = document.querySelector('#search'); if (search)
+    search.oninput = () => { state.query = search.value; render(); }; document.querySelectorAll('[data-sort]').forEach(b => b.onclick = () => { state.sort = b.dataset.sort || 'newest'; render(); }); document.querySelectorAll('[data-item]').forEach(b => b.onclick = () => { const i = Number(b.dataset.item); document.body.insertAdjacentHTML('beforeend', itemModal(state.items[i], i)); bind(); }); document.querySelectorAll('[data-close]').forEach(b => b.onclick = () => document.querySelector('#modal')?.remove()); const stock = document.querySelector('#stockForm'); if (stock)
+    stock.onsubmit = e => { e.preventDefault(); state.items.unshift(itemFromForm(stock)); save(); state.page = 'inventory'; state.toast = 'Stock added successfully'; render(); }; const source = document.querySelector('#sourceForm'); if (source)
+    source.onsubmit = e => { e.preventDefault(); const f = new FormData(source), r = sourceCheck(Number(f.get('buy')), Number(f.get('sale')), String(f.get('condition')), String(f.get('auth'))); const target = document.querySelector('#sourceResult'); if (target)
+        target.innerHTML = `<div class="card result"><div class="eyebrow">Recommendation</div><div class="decision">${r.decision}</div><div class="score">${r.score}/100</div><p>Expected profit £${r.profit.toFixed(2)} · Conservative £${r.conservativeProfit.toFixed(2)}</p></div>`; }; document.querySelectorAll('[data-advance]').forEach(b => b.onclick = () => { const i = Number(b.dataset.advance); state.items[i] = advanceStatus(state.items[i]); save(); document.querySelector('#modal')?.remove(); state.toast = `${state.items[i]?.sku} moved to ${state.items[i]?.status}`; render(); }); document.querySelectorAll('[data-delete]').forEach(b => b.onclick = () => { const i = Number(b.dataset.delete); if (confirm(`Delete ${state.items[i]?.sku}?`)) {
+    state.items.splice(i, 1);
+    save();
+    document.querySelector('#modal')?.remove();
+    render();
+} }); document.querySelectorAll('[data-dispatch]').forEach(b => b.onclick = () => { const i = Number(b.dataset.dispatch), order = state.orders[i]; const item = state.items.find(x => x.sku === order?.sku); if (item)
+    item.status = 'Dispatched'; state.orders.splice(i, 1); save(); state.toast = 'Order completed'; render(); }); document.querySelectorAll('[data-export]').forEach(b => b.onclick = () => exportData({ version: APP_VERSION, items: state.items, orders: state.orders })); }
+render();
+if ('serviceWorker' in navigator)
+    window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js').catch(console.warn));
