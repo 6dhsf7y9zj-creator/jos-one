@@ -1,0 +1,8 @@
+JOS One Beta 0.6
+
+- Dashboard cards now drill into live inventory.
+- Expected Profit opens inventory sorted by profit.
+- Completing an order updates the matching stock item to Dispatched.
+- Business Health reacts after order completion.
+- Visible live-build stamp confirms Beta 0.6 is active.
+- Existing Beta 0.5 and earlier data migrates automatically.
